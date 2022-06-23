@@ -9,4 +9,8 @@ class Dinosaur:
 
     def attack(self, Opponent):
         Opponent.health = Opponent.health - self.attack_power
-        print (f'Dinosaur just did {random.randrange(0, self.attack_power)} hit points of damage to Robot {Opponent.name}. Robot {Opponent.name} now has {Opponent.health} hit points left.')
+        if Opponent.health < 0:
+            Opponent.health = 0
+        print (f'Dinosaur {self.name} just did {random.randrange(0, self.attack_power)} hit points of damage to Robot {Opponent.name}.') 
+        print(f'Robot {Opponent.name} now has {Opponent.health} hit points left.')
+        print('')

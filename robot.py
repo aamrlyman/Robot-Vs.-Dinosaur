@@ -12,5 +12,8 @@ class Robot:
 
     def attack(self, Opponent):
         Opponent.health = Opponent.health - self.active_weapon.attack_power
-        print (f'Robot {self.name} just did {random.randrange(0, self.active_weapon.attack_power)} hit points of damage to Dinosaur {Opponent.name}. Dinosaur {Opponent.name} now has {Opponent.health} hit points left.')
-    
+        if Opponent.health < 0:
+            Opponent.health = 0
+        print (f'Robot {self.name} just did {random.randrange(0, self.active_weapon.attack_power)} hit points of damage to Dinosaur {Opponent.name}.') 
+        print(f'Dinosaur {Opponent.name} now has {Opponent.health} hit points left.')
+        print('')

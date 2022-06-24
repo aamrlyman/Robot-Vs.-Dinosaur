@@ -1,12 +1,14 @@
 from robot import Robot
 from dinosaur import Dinosaur 
+from herd import Herd
+from fleet import Fleet 
 import random 
 
 class Battlefield:
 
     def __init__(self):
-        self.robot = Robot('Sam')
-        self.dinosaur = Dinosaur('Rex')
+        self.robots = Fleet()
+        self.dinos = Herd()
 
     def run_game(self):
         battle = Battlefield()
@@ -16,22 +18,23 @@ class Battlefield:
 
 
     def display_welcome(self):
-        print(f'Welcome to the an epic battle for the ages: The fight between {self.robot.name} the Robot and {self.dinosaur.name} the Dinosaur.')
-        print("Only one can win!")
+        print(f'Welcome to the an epic battle for the ages: The fight between the Robots and the Dinosaurs.')
+        print("Only one team can win!")
         print('')
 
     def battle_phase(self):
-            while self.robot.health > 0 and self.dinosaur.health > 0:
-                self.dinosaur.attack(self.robot)
-                if self.robot.health == 0:
+            while self.robots.total_health > 0 and self.dinos.total_health > 0:
+                self.dinos.herd_attack(self.robots)
+                if self.robots.fleet ==[]:
                     break
-                self.robot.attack(self.dinosaur)
-    
+                self.robots.fleet_attack(self.dinos)
+                if self.dinos.herd ==[]:
+                    break
     def display_winner(self):
-        if self.robot.health > self.dinosaur.health:
-            print(f'Robot {self.robot.name} triumphed over dinosaur {self.dinosaur.name}!!')
+        if self.dinos.herd == []:
+            print('The Robots triumphed over the Dinosaurs!!')
         else:
-            print(f'Dinosaur {self.dinosaur.name} triumphed over Robot {self.robot.name}!!')
+            print('The Dinosaurs triumphed over the Robots!!')
 
         
 

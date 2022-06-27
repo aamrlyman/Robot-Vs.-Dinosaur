@@ -23,6 +23,7 @@ class Battlefield:
         print('')
 
     def battle_phase(self):
+            print('Dinosaurs won first strike!')
             while self.robots.total_health > 0 and self.dinos.total_health > 0:
                 self.dinos.herd_attack(self.robots)
                 if self.robots.fleet ==[]:
